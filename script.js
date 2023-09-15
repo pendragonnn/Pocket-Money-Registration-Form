@@ -1,4 +1,4 @@
-class Pendaftar {
+class Registrant {
   constructor(name, age, money) {
     this.name = name;
     this.age = age;
@@ -133,7 +133,7 @@ async function submitData () {
 
     if (result === true) {
       dataSuccess.classList.remove("visually-hidden");
-      dataRegistrant.push(new Pendaftar(name, age, money));
+      dataRegistrant.push(new Registrant(name, age, money));
 
       let td = [];
       let index = 1;
