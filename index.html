@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Uang Saku</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- row header -->
+      <div class="row d-flex justify-content-center">
+        <div
+          class="col-sm-12 mt-3 bg-white w-75 p-4 rounded-3 header-container"
+        >
+          <h1>Pocket Money Registration Form</h1>
+          <p>
+            Please enter the data correctly in accordance with the following terms and conditions:
+          </p>
+          <ul class="m-0 mb-2">
+            <li>Name must be at least 10 characters</li>
+            <li>Minimum age 25 years</li>
+            <li>Pocket money minimum 100 thousand and maximum 1 million</li>
+          </ul>
+          <div
+            class="button-units bg-white p-2 rounded-2 d-flex justify-content-center"
+          >
+            <button
+              onclick="showForm()"
+              class="btn-form mx-1 btn-active"
+              id="btn-form"
+            >
+              Form
+            </button>
+            <button
+              onclick="showTable()"
+              class="btn-table mx-1 btn-non-active"
+              id="btn-table"
+            >
+              Table
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center" id="form-input-data">
+        <!-- form section start -->
+
+        <div class="col-sm-12 mt-3 bg-white p-4 rounded-3 w-75">
+          <!-- form name -->
+          <div class="mb-3">
+            <label for="name" class="form-label mb-4">Name</label>
+            <input
+              type="text"
+              class="form-input w-50"
+              id="name"
+              placeholder="Name must be at least 10 characters"
+              autocomplete="off"
+              required
+            />
+            <small id="nameCheck" class="text-warning visually-hidden"
+              >Validating data name...</small
+            >
+            <small id="nameSuccess" class="text-success visually-hidden"
+              >Data name validation successful!</small
+            >
+            <small id="nameFalse" class="text-danger visually-hidden"
+              >Name must be at least 10 characters</small
+            >
+          </div>
+        </div>
+
+        <div class="col-sm-12 mt-3 bg-white p-4 rounded-3 w-75">
+          <!-- form age -->
+          <div class="mb-3">
+            <label for="age" class="form-label mb-4">Age</label>
+            <input
+              type="number"
+              class="form-input w-50"
+              id="age"
+              placeholder="Minimum age 25 years"
+            />
+            <small id="ageCheck" class="text-warning visually-hidden"
+              >Validating data age...</small
+            >
+            <small id="ageSuccess" class="text-success visually-hidden"
+              >Data age validation successful!</small
+            >
+            <small id="ageFalse" class="text-danger visually-hidden"
+              >Minimum age 25 years</small
+            >
+          </div>
+        </div>
+
+        <div class="col-sm-12 mt-3 bg-white p-4 rounded-3 w-75">
+          <!-- form money pocket -->
+          <div class="mb-3">
+            <label for="money" class="form-label mb-4">Pocket money (Rp)</label>
+            <input
+              type="number"
+              class="form-input w-50"
+              id="money"
+              placeholder="Pocket money minimum 100 thousand and maximum 1 million"
+            />
+            <small id="moneyCheck" class="text-warning visually-hidden"
+              >Data uang saku sedang divalidasi...</small
+            >
+            <small id="moneySuccess" class="text-success visually-hidden"
+              >Data pocket money validation successful!</small
+            >
+            <small id="moneyFalse" class="text-danger visually-hidden"
+              >Pocket money minimum 100 thousand and maximum 1 million</small
+            >
+          </div>
+        </div>
+
+        <div
+          class="col-sm-12 mt-2 mb-4 w-75 button-container d-flex justify-content-between align-items-center p-0"
+        >
+          <button
+            onclick="submitData()"
+            class="btn-submit rounded-1 text-white"
+          >
+            Submit
+          </button>
+          <small
+            id="dataSuccess"
+            class="text-success d-block my-2 visually-hidden"
+            >All data has been successfully added!</small
+          >
+          <small
+            id="dataFail"
+            class="text-danger d-block my-2 mx-2 visually-hidden"
+            >Data failed to be added! Click the 'clear form' button to
+            clean the form</small
+          >
+          <button onclick="resetForm()" class="btn-reset p-3 rounded-3">
+            Clear form
+          </button>
+        </div>
+      </div>
+      <!-- form section end -->
+
+      <!-- table section start -->
+      <div
+        class="row d-flex justify-content-center visually-hidden"
+        id="table-data"
+      >
+        <div class="col-sm-12 mt-4 bg-white p-4 rounded-3 w-75">
+          <table class="table table-hover text-center">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Pocket Money</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- <tr>
+                <td>Agus</td>
+                <td>24</td>
+                <td>900k</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="col-sm-12 mt-3 mb-4 rounded-3 w-75 button-container d-flex justify-content-between align-items-center p-0"
+        >
+          <button
+            class="btn-submit rounded-3 text-white"
+            id="button-conclusion"
+          >
+            Conclusion
+          </button>
+          <p id="conclusion" class="conclusion-text visually-hidden"></p>
+        </div>
+      </div>
+    </div>
+    <!-- table section end -->
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
