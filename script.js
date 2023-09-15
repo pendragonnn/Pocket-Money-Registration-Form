@@ -98,7 +98,7 @@ async function moneyValidator(money) {
   });
 }
 
-async function validasiInput (name, age, money) {
+async function validateInput (name, age, money) {
   const validatedName = await nameValidation(name)
   const validatedAge = await ageValidation(age);
   const validatedMoney = await moneyValidator(money);
@@ -129,7 +129,7 @@ async function submitData () {
   const money = document.querySelector("#money").value;
 
   if (name !== "" && age !== "" && money !== "") {
-    const result = await validasiInput(name, age, money);
+    const result = await validateInput(name, age, money);
 
     if (result === true) {
       dataSuccess.classList.remove("visually-hidden");
@@ -139,10 +139,6 @@ async function submitData () {
       let index = 1;
       const tr = document.createElement("tr");
       tableBody.appendChild(tr);
-
-      // algoritma
-      // bikin tr baru
-      // bikin 3 td yang isinya data dari objek
 
       for (let i = 0; i < dataRegistrant.length; i++) {
         const tdIndex = document.createElement("td");
@@ -216,7 +212,7 @@ buttonConclusion.addEventListener("click", () => {
   }
 });
 
-const showTable = () => {
+function showTable () {
   formButton.classList.add("btn-non-active");
   tableButton.classList.remove("btn-non-active");
   tableButton.classList.add("btn-active");
@@ -225,7 +221,7 @@ const showTable = () => {
   conclusion.classList.add("visually-hidden");
 };
 
-const showForm = () => {
+function showForm() {
   formButton.classList.remove("btn-non-active");
   tableButton.classList.add("btn-non-active");
   tableButton.classList.remove("btn-active");
